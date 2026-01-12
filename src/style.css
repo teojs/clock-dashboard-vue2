@@ -1,0 +1,206 @@
+@import '@fontsource/huninn';
+
+@font-face {
+  font-family: 'SFCompactRounded';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url('/fonts/SF-Pro/SFCompactRounded-Ultralight.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'SFCompactRounded';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url('/fonts/SF-Pro/SFCompactRounded-Thin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'SFCompactRounded';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/SF-Pro/SFCompactRounded-Light.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'SFCompactRounded';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/SF-Pro/SFCompactRounded-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'SFCompactRounded';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/SF-Pro/SFCompactRounded-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'SFCompactRounded';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/SF-Pro/SFCompactRounded-Semibold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'SFCompactRounded';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/SF-Pro/SFCompactRounded-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'SFCompactRounded';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('/fonts/SF-Pro/SFCompactRounded-Heavy.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'SFCompactRounded';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/fonts/SF-Pro/SFCompactRounded-Black.woff2') format('woff2');
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent-glow: rgba(255, 255, 255, 0.12);
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: #000000;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  color: white;
+}
+
+/* --- iOS 12 兼容性补丁 (不再依赖 @supports) --- */
+
+/* 1. Flex 间距修复 - 为所有使用的 gap 增加 margin */
+.flex.gap-1 > *:not(:last-child) {
+  margin-right: 0.25rem;
+}
+.flex.gap-2 > *:not(:last-child) {
+  margin-right: 0.5rem;
+}
+.flex.gap-3 > *:not(:last-child) {
+  margin-right: 0.75rem;
+}
+.flex.gap-4 > *:not(:last-child) {
+  margin-right: 1rem;
+}
+.flex.gap-5 > *:not(:last-child) {
+  margin-right: 1.25rem;
+}
+.flex.gap-6 > *:not(:last-child) {
+  margin-right: 1.5rem;
+}
+.flex.gap-10 > *:not(:last-child) {
+  margin-right: 2.5rem;
+}
+
+.flex.flex-col.gap-1 > *:not(:last-child) {
+  margin-bottom: 0.25rem;
+  margin-right: 0;
+}
+.flex.flex-col.gap-2 > *:not(:last-child) {
+  margin-bottom: 0.5rem;
+  margin-right: 0;
+}
+.flex.flex-col.gap-3 > *:not(:last-child) {
+  margin-bottom: 0.75rem;
+  margin-right: 0;
+}
+.flex.flex-col.gap-4 > *:not(:last-child) {
+  margin-bottom: 1rem;
+  margin-right: 0;
+}
+.flex.flex-col.gap-6 > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+  margin-right: 0;
+}
+.flex.flex-col.gap-10 > *:not(:last-child) {
+  margin-bottom: 2.5rem;
+  margin-right: 0;
+}
+
+/* 2. Grid 间距修复 (针对 iOS 12.1 以下不识别 grid-gap) */
+.grid.gap-1 {
+  margin: -0.5px;
+}
+.grid.gap-1 > * {
+  margin: 0.5px;
+}
+
+.grid.gap-6 {
+  margin: -0.75rem;
+}
+.grid.gap-6 > * {
+  margin: 0.75rem;
+}
+
+.grid.gap-10 {
+  margin: -1.25rem;
+}
+.grid.gap-10 > * {
+  margin: 1.25rem;
+}
+
+/* 特殊处理：如果浏览器支持 flex-gap (iOS 14.5+), 则重置 margin */
+/* 使用 aspect-ratio 作为支持 flex-gap 的代理检查（两者都在 Safari 14.1+ 引入） */
+@supports (gap: 1px) and (aspect-ratio: 1 / 1) {
+  .flex.gap-1 > *:not(:last-child),
+  .flex.gap-2 > *:not(:last-child),
+  .flex.gap-3 > *:not(:last-child),
+  .flex.gap-4 > *:not(:last-child),
+  .flex.gap-5 > *:not(:last-child),
+  .flex.gap-6 > *:not(:last-child),
+  .flex.gap-10 > *:not(:last-child),
+  .flex.flex-col.gap-1 > *:not(:last-child),
+  .flex.flex-col.gap-2 > *:not(:last-child),
+  .flex.flex-col.gap-3 > *:not(:last-child),
+  .flex.flex-col.gap-4 > *:not(:last-child),
+  .flex.flex-col.gap-6 > *:not(:last-child),
+  .flex.flex-col.gap-10 > *:not(:last-child) {
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+/* 如果浏览器支持 grid-gap (iOS 12.1+), 则重置 grid 的 margin */
+@supports (display: grid) and (gap: 1px) {
+  .grid.gap-1,
+  .grid.gap-6,
+  .grid.gap-10 {
+    margin: 0 !important;
+  }
+  .grid.gap-1 > *,
+  .grid.gap-6 > *,
+  .grid.gap-10 > * {
+    margin: 0 !important;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.float-anim {
+  animation: float 5s ease-in-out infinite;
+}

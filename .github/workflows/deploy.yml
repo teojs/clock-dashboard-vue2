@@ -1,0 +1,49 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    tags:
+      - 'v*'
+    paths-ignore:
+      - '**.md'
+      - LICENSE
+      - 'docs/**'
+      - CHANGELOG.md
+      - eslint.config.js
+      - .gitignore
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build
+
+      - name: Inject Visitor Badge
+        run: |
+          sed -i 's|<!-- VISITOR_BADGE_PLACEHOLDER -->|<div style="width: 0;height: 0;overflow: hidden;"><img src="https://visitor-badge.laobi.icu/badge?page_id=${{ github.repository }}" alt="visitors"></div>|' dist/index.html
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          branch: gh-pages
