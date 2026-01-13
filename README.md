@@ -1,4 +1,4 @@
-# Clock Dashboard | 天气时钟看板
+# Clock Dashboard Vue 2 | 天气时钟看板 Vue 2.7 版本
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](LICENSE)
 [![Vue](https://img.shields.io/badge/vue-2.7-brightgreen.svg)](https://vuejs.org/)
