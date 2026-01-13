@@ -42,9 +42,6 @@ importers:
       '@antfu/eslint-config':
         specifier: ^2.0.0
         version: 2.27.3(@typescript-eslint/utils@8.50.1(eslint@8.57.1)(typescript@5.9.3))(@vue/compiler-sfc@3.5.26)(eslint-plugin-format@1.1.0(eslint@8.57.1))(eslint@8.57.1)(typescript@5.9.3)
-      '@types/node':
-        specifier: ^20.0.0
-        version: 20.19.27
       '@vitejs/plugin-legacy':
         specifier: ^5.3.0
         version: 5.4.3(terser@5.44.1)(vite@5.4.21(@types/node@20.19.27)(terser@5.44.1))
@@ -69,9 +66,6 @@ importers:
       terser:
         specifier: ^5.27.0
         version: 5.44.1
-      typescript:
-        specifier: ^5.4.0
-        version: 5.9.3
       vite:
         specifier: ^5.2.0
         version: 5.4.21(@types/node@20.19.27)(terser@5.44.1)
@@ -4960,6 +4954,7 @@ snapshots:
   '@types/node@20.19.27':
     dependencies:
       undici-types: 6.21.0
+    optional: true
 
   '@types/normalize-package-data@2.4.4': {}
 
@@ -7710,7 +7705,8 @@ snapshots:
       has-symbols: 1.1.0
       which-boxed-primitive: 1.1.1
 
-  undici-types@6.21.0: {}
+  undici-types@6.21.0:
+    optional: true
 
   unicode-canonical-property-names-ecmascript@2.0.1: {}
 
