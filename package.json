@@ -1,7 +1,7 @@
 {
   "name": "clock-dashboard",
   "type": "module",
-  "version": "1.17.0",
+  "version": "0.0.1",
   "private": false,
   "packageManager": "pnpm@9.6.0",
   "license": "CC-BY-NC-SA-4.0",
@@ -9,7 +9,6 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "release": "standard-version && git push --follow-tags",
     "release:patch": "standard-version --release-as patch && git push --follow-tags",
     "release:minor": "standard-version --release-as minor && git push --follow-tags",
     "release:major": "standard-version --release-as major && git push --follow-tags",
