@@ -40,7 +40,7 @@ const Math = window.Math
           </span>
         </div>
       </div>
-      <div class="hidden md:block w-px h-16 mx-8 self-center" />
+      <div class="hidden md:block w-px h-16 mx-4 self-center" />
       <div class="sm:h-32 flex flex-row-reverse sm:flex-col items-center sm:items-start justify-center">
         <span class="text-4xl sm:text-5xl opacity-70 sm:opacity-90 tracking-wider sm:mt-2">{{ lunar.fullDate }}</span>
         <span class="text-4xl tracking-[0.2em] font-light opacity-70 sm:mt-2">{{ lunar.year }}({{ lunar.yearShengxiao }})年{{ lunar.month }}月</span>

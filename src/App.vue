@@ -1,6 +1,6 @@
 <script setup>
 import { storeToRefs } from 'pinia'
-import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import NewYearEgg from './components/NewYearEgg.vue'
 import WeatherEffects from './components/WeatherEffects.vue'
 
