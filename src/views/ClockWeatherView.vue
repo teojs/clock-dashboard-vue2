@@ -126,6 +126,7 @@ const Math = window.Math
 <style scoped>
 .glass-panel {
   max-width: 1200px;
+  margin: 0 auto;
 }
 
 .date-day-big {
