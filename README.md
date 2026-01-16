@@ -5,7 +5,7 @@
 [![releases](https://img.shields.io/github/v/release/teojs/clock-dashboard-vue2?color=green&label=releases)](https://github.com/teojs/clock-dashboard-vue2/releases)
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=teojs.clock-dashboard-vue2)
 
-此项目为[Clock Dashboard](https://github.com/teojs/clock-dashboard)的 Vue 2.7 版本，目的是为了兼容低端系统，比如： iOS 9.3.6 的 iPad mini 1，更新维护会比较慢。详细说明请看[Clock Dashboard](https://github.com/teojs/clock-dashboard)。
+此项目为[Clock Dashboard](https://github.com/teojs/clock-dashboard)的 Vue 2.7 版本，目的是为了兼容低端系统，比如： iOS 9.3.6 的 iPad mini 1，由于系统性能问题，目前仅支持天气时钟，不支持HA、全屏日历等。后续只修复已知问题，不添加新功能。详细说明请看[Clock Dashboard](https://github.com/teojs/clock-dashboard)。
 
 **🌐 在线地址：** [https://teojs.github.io/clock-dashboard-vue2/](https://teojs.github.io/clock-dashboard-vue2/)
 
@@ -13,11 +13,7 @@
 
 ## 📸 预览
 
-![时钟页面](./public/screenshots/4.gif)
-
-|                时钟页面                 |                智能控制                 |                全屏日历                 |
-| :-------------------------------------: | :-------------------------------------: | :-------------------------------------: |
-| ![时钟页面](./public/screenshots/1.png) | ![智能控制](./public/screenshots/0.png) | ![全屏日历](./public/screenshots/2.png) |
+![时钟页面](./public/screenshots/1.png)
 
 ---
 
