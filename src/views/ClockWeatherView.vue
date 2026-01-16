@@ -15,6 +15,11 @@ const { h1, h2, m1, m2, s1, s2, lunar, now } = useTime({
 })
 
 const showClockSettings = ref(false)
+const weekdayNames = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+const weekdayLabel = computed(() => {
+  const date = now.value
+  return weekdayNames[date.getDay()]
+})
 
 const baseDelay = computed(() => {
   return clockConfig.value.showSeconds ? 0 : -2
@@ -24,23 +29,23 @@ const Math = window.Math
 </script>
 
 <template>
-  <div class="glass-panel h-full flex flex-col items-center justify-evenly text-white w-full overflow-y-auto overflow-x-hidden">
+  <div class="glass-panel h-screen flex flex-col items-center justify-center text-white w-full overflow-y-auto overflow-x-hidden">
     <!-- 日期与农历 -->
-    <div class="flex flex-col sm:flex-row items-center md:items-start gap-0 sm:gap-6 w-full justify-center">
-      <div class="flex items-center gap-4">
+    <div class="flex flex-col sm:flex-row items-center md:items-start w-full justify-center">
+      <div class="flex items-center">
         <div class="date-day-big">
           {{ now.getDate() }}
         </div>
         <div class="flex flex-col mt-2">
           <span class="text-5xl tracking-[0.2em] opacity-90 uppercase">
-            {{ now.toLocaleDateString('zh-CN', { weekday: 'long' }) }}
+            {{ weekdayLabel }}
           </span>
           <span class="text-4xl tracking-[0.2em] font-light opacity-70 mt-2">
             {{ now.getFullYear() }}年{{ now.getMonth() + 1 }}月
           </span>
         </div>
       </div>
-      <div class="hidden md:block w-px h-16 mx-4 self-center" />
+      <div class="hidden md:block w-px h-16 mx-8 self-center" />
       <div class="sm:h-32 flex flex-row-reverse sm:flex-col items-center sm:items-start justify-center">
         <span class="text-4xl sm:text-5xl opacity-70 sm:opacity-90 tracking-wider sm:mt-2">{{ lunar.fullDate }}</span>
         <span class="text-4xl tracking-[0.2em] font-light opacity-70 sm:mt-2">{{ lunar.year }}({{ lunar.yearShengxiao }})年{{ lunar.month }}月</span>
@@ -49,7 +54,7 @@ const Math = window.Math
 
     <!-- 时钟显示 -->
     <div
-      class="clock-display tabular-nums cursor-pointer transition-all duration-500"
+      class="clock-display tabular-nums cursor-pointer transition-all duration-500 my-14"
       :class="{ 'with-seconds': clockConfig.showSeconds }"
       :style="{ color: clockConfig.color, fontWeight: clockConfig.fontWeight, opacity: clockConfig.opacity }"
       @click="showClockSettings = true"
@@ -130,6 +135,7 @@ const Math = window.Math
   background: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0.7));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin-right: 1rem;
 }
 
 .clock-display {
@@ -139,11 +145,11 @@ const Math = window.Math
   align-items: center;
   justify-content: center;
   font-family: 'SFCompactRounded', 'Huninn', sans-serif;
-  font-size: min(26rem, 46vw);
+  font-size: 26rem;
 }
 
 .clock-display.with-seconds {
-  font-size: min(20rem, 28vw);
+  font-size: 20rem;
 }
 
 .clock-separator {

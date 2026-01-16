@@ -75,10 +75,10 @@ function handleSaveAndClose() {
             <h3 class="text-white/50 mb-4 uppercase tracking-widest text-sm font-medium">
               时钟颜色
             </h3>
-            <div class="grid grid-cols-7 gap-3 mb-4">
-              <div v-for="color in presetColors" :key="color">
+            <div class="flex flex-wrap mb-4">
+              <div v-for="color in presetColors" :key="color" class="mr-2 mb-2">
                 <button
-                  class="w-10 h-10 rounded-full border-2 transition-all"
+                  class="w-10 h-10 rounded-full border-4 transition-all"
                   :style="{ backgroundColor: color, borderColor: draft.color === color ? 'white' : 'transparent' }"
                   @click="draft.color = color"
                 />
@@ -200,20 +200,24 @@ function handleSaveAndClose() {
         </div>
 
         <!-- Action Buttons -->
-        <div class="flex gap-4 pt-4">
+        <div class="flex pt-4">
           <button
-            class="flex items-center justify-center gap-2 p-3 px-6 rounded-2xl bg-white/10 hover:bg-white/20 transition-all font-medium"
+            class="rounded-2xl bg-white/10 hover:bg-white/20 transition-all font-medium mr-2"
             @click="handleRestoreDefault"
           >
-            <RotateCcw class="w-5 h-5" />
-            还原默认
+            <span class="flex items-center justify-center p-3 px-6">
+              <RotateCcw class="w-5 h-5 mr-2" />
+              还原默认
+            </span>
           </button>
           <button
-            class="flex-1 flex items-center justify-center gap-2 p-3 rounded-2xl font-bold transition-all bg-white text-black hover:bg-opacity-90"
+            class="flex-1 rounded-2xl font-bold transition-all bg-white text-black hover:bg-opacity-90"
             @click="handleSaveAndClose"
           >
-            <Save class="w-5 h-5" />
-            保存并关闭
+            <span class="flex items-center justify-center p-3 ">
+              <Save class="w-5 h-5 mr-2" />
+              保存并关闭
+            </span>
           </button>
         </div>
       </div>

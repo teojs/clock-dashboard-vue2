@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export async function searchCities(query, limit = 3) {
   const trimmedQuery = query.trim()
   if (!trimmedQuery) {
@@ -11,20 +13,19 @@ export async function searchCities(query, limit = 3) {
   url.searchParams.set('accept-language', 'zh-CN')
   url.searchParams.set('addressdetails', '1')
 
-  const res = await fetch(url.toString(), {
-    headers: {
-      'User-Agent': 'ClockDashboard/1.0',
-    },
-  })
-
-  if (!res.ok) {
-    throw new Error(`Geocoding API error: ${res.statusText}`)
+  try {
+    const { data } = await axios.get(url.toString(), {
+      headers: {
+        'User-Agent': 'ClockDashboard/1.0',
+      },
+    })
+    if (Array.isArray(data) && data.length > 0) {
+      return data
+    }
+    return []
   }
-
-  const data = await res.json()
-  if (Array.isArray(data) && data.length > 0) {
-    return data
+  catch (error) {
+    const statusText = error?.response?.statusText || error?.message || 'Unknown error'
+    throw new Error(`Geocoding API error: ${statusText}`)
   }
-
-  return []
 }

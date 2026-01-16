@@ -181,11 +181,11 @@ async function handleManualRefresh() {
             <h3 class="text-white/50 mb-4 uppercase tracking-widest text-sm font-medium">
               位置获取方式
             </h3>
-            <div class="grid grid-cols-3 gap-3">
+            <div class="flex">
               <button
                 v-for="mode in ['auto', 'coords', 'city']"
                 :key="mode"
-                class="p-2 rounded-xl border transition-all text-center"
+                class="w-1/3 p-2 rounded-xl border transition-all text-center mr-2 last:mr-0"
                 :class="draft.locationMode === mode ? 'bg-white text-black border-white' : 'bg-white/5 border-white/10 hover:bg-white/10'"
                 @click="draft.locationMode = mode"
               >
@@ -194,8 +194,8 @@ async function handleManualRefresh() {
             </div>
 
             <!-- Conditional Inputs -->
-            <div v-if="draft.locationMode === 'coords'" class="mt-4 grid grid-cols-2 gap-4">
-              <div class="space-y-2">
+            <div v-if="draft.locationMode === 'coords'" class="mt-4 grid grid-cols-2">
+              <div class="space-y-2 mr-2">
                 <label class="text-xs text-white/40 block ml-1">经度 (Longitude)</label>
                 <input v-model.number="draft.customLon" type="number" step="0.0001" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-white/30">
               </div>
@@ -203,7 +203,7 @@ async function handleManualRefresh() {
                 <label class="text-xs text-white/40 block ml-1">纬度 (Latitude)</label>
                 <input v-model.number="draft.customLat" type="number" step="0.0001" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-white/30">
               </div>
-              <div class="space-y-2 text-xs text-white/40 flex items-center col-span-2">
+              <div class="space-y-2 text-xs text-white/40 flex items-center col-span-2 mt-2">
                 获取经纬度 :
                 <a href="https://lbs.baidu.com/maptool/getpoint" target="_blank" class="text-blue-500 ml-1">https://lbs.baidu.com/maptool/getpoint</a>
               </div>
@@ -259,11 +259,11 @@ async function handleManualRefresh() {
             <h3 class="text-white/50 mb-4 uppercase tracking-widest text-sm font-medium">
               天气更新频率
             </h3>
-            <div class="grid grid-cols-4 gap-2">
+            <div class="flex">
               <button
                 v-for="time in [5, 10, 20, 30]"
                 :key="time"
-                class="py-2 px-1 rounded-xl border transition-all text-center text-sm"
+                class="w-1/4 py-2 px-1 rounded-xl border transition-all text-center text-sm mr-2 last:mr-0"
                 :class="draft.refreshInterval === time ? 'bg-white text-black border-white' : 'bg-white/5 border-white/10 hover:bg-white/10'"
                 @click="draft.refreshInterval = time"
               >
@@ -272,58 +272,26 @@ async function handleManualRefresh() {
             </div>
           </section>
 
-          <!-- Effects Toggles -->
-          <section>
-            <h3 class="text-white/50 mb-4 uppercase tracking-widest text-sm font-medium">
-              天气特效显示
-            </h3>
-            <div class="grid grid-cols-3 gap-3">
-              <div
-                class="flex items-center justify-center p-2 rounded-xl cursor-pointer transition-all duration-300 text-center border"
-                :class="draft.showRainEffect ? 'bg-white text-black border-white' : 'bg-white/5 border-white/10 hover:bg-white/10'"
-                @click="draft.showRainEffect = !draft.showRainEffect"
-              >
-                <span class="text-base">下雨</span>
-              </div>
-
-              <div
-                class="flex items-center justify-center p-2 rounded-xl cursor-pointer transition-all duration-300 text-center border"
-                :class="draft.showThunderEffect ? 'bg-white text-black border-white' : 'bg-white/5 border-white/10 hover:bg-white/10'"
-                @click="draft.showThunderEffect = !draft.showThunderEffect"
-              >
-                <span class="text-base">打雷</span>
-              </div>
-
-              <div
-                class="flex items-center justify-center p-2 rounded-xl cursor-pointer transition-all duration-300 text-center border"
-                :class="draft.showSnowEffect ? 'bg-white text-black border-white' : 'bg-white/5 border-white/10 hover:bg-white/10'"
-                @click="draft.showSnowEffect = !draft.showSnowEffect"
-              >
-                <span class="text-base">下雪</span>
-              </div>
-            </div>
-          </section>
-
           <!-- Icon Explanation -->
           <section>
             <h3 class="text-white/50 mb-4 uppercase tracking-widest text-sm font-medium">
               指标图标说明
             </h3>
-            <div class="grid grid-cols-2 gap-4 bg-white/5 rounded-2xl p-4">
-              <div class="flex items-center gap-3">
-                <Droplets class="w-5 h-5 text-blue-500/60" />
+            <div class="flex flex-wrap bg-white/5 rounded-2xl p-4">
+              <div class="w-1/2 flex items-center mb-4">
+                <Droplets class="w-5 h-5 text-blue-500/60 mr-2" />
                 <span class="text-sm text-white/80">相对湿度</span>
               </div>
-              <div class="flex items-center gap-3">
-                <Leaf class="w-5 h-5 text-green-300/60" />
+              <div class="w-1/2 flex items-center mb-4">
+                <Leaf class="w-5 h-5 text-green-300/60 mr-2" />
                 <span class="text-sm text-white/80">空气质量（美国 AQI）</span>
               </div>
-              <div class="flex items-center gap-3">
-                <PersonStanding class="w-5 h-5 text-orange-500/60" />
+              <div class="w-1/2 flex items-center">
+                <PersonStanding class="w-5 h-5 text-orange-500/60 mr-2" />
                 <span class="text-sm text-white/80">体感温度</span>
               </div>
-              <div class="flex items-center gap-3">
-                <Sun class="w-5 h-5 text-purple-500/60" />
+              <div class="w-1/2 flex items-center">
+                <Sun class="w-5 h-5 text-purple-500/60 mr-2" />
                 <span class="text-sm text-white/80">紫外线指数</span>
               </div>
             </div>
@@ -331,29 +299,33 @@ async function handleManualRefresh() {
         </div>
 
         <!-- Action Buttons -->
-        <div class="flex gap-4 pt-4">
+        <div class="flex pt-4">
           <button
-            class="flex items-center justify-center gap-2 p-3 px-6 rounded-2xl bg-white/10 hover:bg-white/20 transition-all font-medium"
+            class="rounded-2xl bg-white/10 hover:bg-white/20 transition-all font-medium mr-2"
             :disabled="loading"
             @click="handleManualRefresh"
           >
-            <RefreshCw class="w-5 h-5" :class="{ 'animate-spin': loading }" />
-            立即刷新天气
+            <span class="flex items-center justify-center p-3 px-6">
+              <RefreshCw class="w-5 h-5 mr-2" :class="{ 'animate-spin': loading }" />
+              立即刷新天气
+            </span>
           </button>
           <button
-            class="flex-1 flex items-center justify-center gap-2 p-3 rounded-2xl font-bold transition-all"
+            class="flex-1 rounded-2xl font-bold transition-all"
             :class="citySearchLoading || loading ? 'bg-white/30 text-white/50 cursor-not-allowed' : 'bg-white text-black hover:bg-opacity-90'"
             :disabled="citySearchLoading || loading"
             @click="handleSaveAndClose"
           >
-            <Save class="w-5 h-5" />
-            保存并关闭
+            <span class="flex items-center justify-center p-3 px-6">
+              <Save class="w-5 h-5 mr-2" />
+              保存并关闭
+            </span>
           </button>
         </div>
         <div class="text-center mt-3 text-xs text-white/30">
           <span>Clock Dashboard v{{ VERSION }}</span>
           ｜
-          <a href="https://github.com/teojs/clock-dashboard" target="_blank" class="text-blue-500/80 inline-flex items-center gap-1">
+          <a href="https://github.com/teojs/clock-dashboard" target="_blank" class="text-blue-500/80 inline-flex items-center">
             Copyright © 2025-2026 teojs<ExternalLink class="w-3.5 h-3.5" />
           </a>
         </div>

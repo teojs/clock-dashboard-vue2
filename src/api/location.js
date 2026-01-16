@@ -1,23 +1,35 @@
+import axios from 'axios'
+
 export async function reverseGeocode(lat, lon) {
-  const response = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=zh`)
-
-  if (!response.ok) {
-    throw new Error(`Reverse geocoding API error: ${response.statusText}`)
+  try {
+    const { data } = await axios.get('https://api.bigdatacloud.net/data/reverse-geocode-client', {
+      params: {
+        latitude: lat,
+        longitude: lon,
+        localityLanguage: 'zh',
+      },
+    })
+    return data
   }
-
-  const data = await response.json()
-  return data
+  catch (error) {
+    const statusText = error?.response?.statusText || error?.message || 'Unknown error'
+    throw new Error(`Reverse geocoding API error: ${statusText}`)
+  }
 }
 
 export async function getLocationByIp() {
-  const res = await fetch('https://api.bigdatacloud.net/data/reverse-geocode-client?localityLanguage=zh')
-
-  if (!res.ok) {
-    throw new Error(`IP location API error: ${res.statusText}`)
+  try {
+    const { data } = await axios.get('https://api.bigdatacloud.net/data/reverse-geocode-client', {
+      params: {
+        localityLanguage: 'zh',
+      },
+    })
+    return data
   }
-
-  const data = await res.json()
-  return data
+  catch (error) {
+    const statusText = error?.response?.statusText || error?.message || 'Unknown error'
+    throw new Error(`IP location API error: ${statusText}`)
+  }
 }
 
 export async function getCurrentPosition(timeout = 5000) {

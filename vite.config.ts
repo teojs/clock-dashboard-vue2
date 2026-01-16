@@ -12,7 +12,7 @@ export default defineConfig({
   plugins: [
     vue(),
     legacy({
-      targets: ['ios >= 9'],
+      targets: ['ie 11', 'ios_saf 9'],
       additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
     }),
     VitePWA({
@@ -61,6 +61,9 @@ export default defineConfig({
   },
   build: {
     minify: 'terser',
+    terserOptions: {
+      ecma: 5,
+    },
     rollupOptions: {
       output: {
         manualChunks(id) {

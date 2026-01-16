@@ -39,29 +39,29 @@ const Math = window.Math
   <div class="w-full">
     <div
       id="weather-container"
-      class="weather-clickable px-4 sm:px-12 grid grid-cols-1 md:grid-cols-3 gap-3 w-full transition-opacity duration-700"
+      class="weather-clickable px-4 sm:px-12 flex w-full transition-opacity duration-700"
       :class="{ 'opacity-30': loading, 'opacity-100': !loading }"
       @click="showSettings = true"
     >
       <!-- 状态与定位 -->
-      <div class="flex items-center justify-center md:justify-start gap-0">
+      <div class="w-1/3 flex items-center justify-center md:justify-start">
         <div id="weather-icon" class="w-28 sm:h-28 flex-shrink-0">
           <img :src="weatherInfo.icon" :alt="weatherInfo.text" class="w-full h-full object-contain" draggable="false">
         </div>
         <div>
-          <p id="weather-text" class="text-4xl font-semibold tracking-wide">
+          <div id="weather-text" class="text-4xl font-semibold tracking-wide">
             {{ weatherInfo.text }}
-          </p>
-          <p id="location-text" class="text-lg text-white/80 uppercase tracking-widest mt-2 whitespace-nowrap">
+          </div>
+          <div id="location-text" class="text-lg text-white/80 uppercase tracking-widest mt-2 whitespace-nowrap">
             {{ locationText }} ·
             降雨 <span class="text-blue-400 text-xl tabular-nums">{{ weatherData ? weatherData.hourly.precipitation_probability[weatherData.current_hour_index] : '--' }}%</span>
-          </p>
+          </div>
         </div>
       </div>
 
       <!-- 温度显示 -->
-      <div class="flex items-center justify-center px-4 gap-6">
-        <div class="flex items-end">
+      <div class="w-1/3 flex items-center justify-center px-4">
+        <div class="flex items-end mr-4">
           <div id="temp-val" class="text-8xl font-extralight mr-1">
             {{ weatherData ? Math.round(weatherData.current.temperature_2m) : '--' }}
           </div>
@@ -69,8 +69,8 @@ const Math = window.Math
             °C
           </div>
         </div>
-        <div class="flex flex-col items-end justify-between gap-2 text-3xl font-medium">
-          <span id="temp-max" class="text-red-200">
+        <div class="flex flex-col items-end justify-between text-3xl font-medium">
+          <span id="temp-max" class="text-red-200 mb-3">
             {{ weatherData ? Math.round(Math.max(...weatherData.hourly.temperature_2m)) : '--' }}°
           </span>
           <span id="temp-min" class="text-blue-200">
@@ -80,43 +80,43 @@ const Math = window.Math
       </div>
 
       <!-- 环境数据 -->
-      <div class="flex flex-col justify-center items-center md:items-end sm:col-span-2 md:col-span-1 gap-3 text-white text-3xl tabular-nums">
-        <div class="w-full md:w-auto grid grid-cols-4 md:grid-cols-2 gap-y-3 gap-x-4">
+      <div class="w-1/3 flex flex-col justify-center items-center md:items-end text-white text-3xl tabular-nums">
+        <div class="w-auto flex flex-wrap">
           <!-- 湿度 -->
-          <div class="flex flex-col sm:flex-row items-center justify-center sm:justify-end gap-1">
+          <div class="w-1/2 flex flex-col sm:flex-row items-center justify-center sm:justify-end mb-3">
             <span id="humidity-val">
               {{ weatherData ? weatherData.current.relative_humidity_2m : '--' }}%
             </span>
-            <Droplets class="w-8 h-8 text-blue-500/60 flex-shrink-0" />
+            <Droplets class="w-8 h-8 text-blue-500/60 flex-shrink-0 ml-2" />
           </div>
 
           <!-- 空气质量 -->
-          <div class="flex flex-col sm:flex-row items-center justify-center sm:justify-end gap-1">
-            <div class="flex items-start gap-2">
+          <div class="w-1/2 flex flex-col sm:flex-row items-center justify-center sm:justify-end mb-3">
+            <div class="flex items-start">
               <span id="aqi-val">
                 {{ airQualityData?.current?.us_aqi || '--' }}
               </span>
-              <span id="aqi-label" class="text-sm opacity-60 ml-[-6px] whitespace-nowrap" :class="aqiInfo.color">
+              <span id="aqi-label" class="text-sm opacity-60 whitespace-nowrap" :class="aqiInfo.color">
                 {{ aqiInfo?.label || '-' }}
               </span>
             </div>
-            <Leaf class="w-8 h-8 text-green-300/60 flex-shrink-0" />
+            <Leaf class="w-8 h-8 text-green-300/60 flex-shrink-0 ml-2" />
           </div>
 
           <!-- 体感温度 -->
-          <div class="flex flex-col sm:flex-row items-center justify-center sm:justify-end gap-1">
+          <div class="w-1/2 flex flex-col sm:flex-row items-center justify-center sm:justify-end">
             <span id="apparent-temp-val">
               {{ weatherData ? Math.round(weatherData.current.apparent_temperature) : '--' }}°C
             </span>
-            <PersonStanding class="w-8 h-8 text-orange-500/60 flex-shrink-0" />
+            <PersonStanding class="w-8 h-8 text-orange-500/60 flex-shrink-0 ml-2" />
           </div>
 
           <!-- 紫外线 -->
-          <div class="flex flex-col sm:flex-row items-center justify-center sm:justify-end gap-1">
+          <div class="w-1/2 flex flex-col sm:flex-row items-center justify-center sm:justify-end">
             <span id="uv-val">
               {{ weatherData ? Math.round(weatherData.hourly.uv_index[weatherData.current_hour_index]) : '--' }}
             </span>
-            <Sun class="w-8 h-8 text-purple-500/60 flex-shrink-0" />
+            <Sun class="w-8 h-8 text-purple-500/60 flex-shrink-0 ml-2" />
           </div>
         </div>
       </div>
