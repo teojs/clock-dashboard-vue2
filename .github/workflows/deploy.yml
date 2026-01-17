@@ -11,6 +11,7 @@ on:
       - CHANGELOG.md
       - eslint.config.js
       - .gitignore
+  workflow_dispatch:
 
 permissions:
   contents: write
