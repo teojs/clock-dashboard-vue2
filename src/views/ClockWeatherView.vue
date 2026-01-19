@@ -45,7 +45,12 @@ const Math = window.Math
           </span>
         </div>
         <div class="flex flex-col">
-          <span class="lunar-date-label">{{ lunar.fullDate }}</span>
+          <div class="lunar-date-label">
+            {{ lunar.date }}
+            <span v-if="lunar.festival">
+              ·{{ lunar.festival }}
+            </span>
+          </div>
           <span class="lunar-year-label">{{ lunar.year }}({{ lunar.yearShengxiao }})年{{ lunar.month }}月</span>
         </div>
       </div>

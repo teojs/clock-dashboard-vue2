@@ -22,14 +22,11 @@ export function getLunarDate(date) {
     const allFestivals = [...festivals, ...solarFestivals]
     const festival = allFestivals.length > 0 ? allFestivals[0] : (jieQi || '')
 
-    const lunarDay = day === '初一' ? `${month}月` : day
-
     const holiday = HolidayUtil.getHoliday(solar.getYear(), solar.getMonth(), solar.getDay())
     const holidayLabel = holiday ? (holiday.isWork() ? '班' : '休') : undefined
 
     return {
-      fullDate: festival ? `${lunarDay}·${festival}` : lunarDay,
-      date: festival || lunarDay,
+      date: day,
       year: yearGanzhi,
       month,
       yearShengxiao: lunar.getYearShengXiao(),
