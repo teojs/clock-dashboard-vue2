@@ -36,25 +36,24 @@ const Math = window.Math
         <div class="date-day-big">
           {{ now.getDate() }}
         </div>
-        <div class="flex flex-col mt-2">
-          <span class="text-5xl tracking-[0.2em] opacity-90 uppercase">
+        <div class="flex flex-col mr-16">
+          <span class="weekday-label">
             {{ weekdayLabel }}
           </span>
-          <span class="text-4xl tracking-[0.2em] font-light opacity-70 mt-2">
+          <span class="year-label">
             {{ now.getFullYear() }}年{{ now.getMonth() + 1 }}月
           </span>
         </div>
-      </div>
-      <div class="hidden md:block w-px h-16 mx-8 self-center" />
-      <div class="sm:h-32 flex flex-row-reverse sm:flex-col items-center sm:items-start justify-center">
-        <span class="text-4xl sm:text-5xl opacity-70 sm:opacity-90 tracking-wider sm:mt-2">{{ lunar.fullDate }}</span>
-        <span class="text-4xl tracking-[0.2em] font-light opacity-70 sm:mt-2">{{ lunar.year }}({{ lunar.yearShengxiao }})年{{ lunar.month }}月</span>
+        <div class="flex flex-col">
+          <span class="lunar-date-label">{{ lunar.fullDate }}</span>
+          <span class="lunar-year-label">{{ lunar.year }}({{ lunar.yearShengxiao }})年{{ lunar.month }}月</span>
+        </div>
       </div>
     </div>
 
     <!-- 时钟显示 -->
     <div
-      class="clock-display tabular-nums cursor-pointer transition-all duration-500 my-14"
+      class="clock-display tabular-nums cursor-pointer transition-all duration-500"
       :class="{ 'with-seconds': clockConfig.showSeconds }"
       :style="{ color: clockConfig.color, fontWeight: clockConfig.fontWeight, opacity: clockConfig.opacity }"
       @click="showClockSettings = true"
@@ -125,18 +124,48 @@ const Math = window.Math
 
 <style scoped>
 .glass-panel {
-  max-width: 1200px;
+  max-width: 150vh;
   margin: 0 auto;
 }
 
 .date-day-big {
-  font-size: 8rem; /* iOS 12 Fallback: 约 80px */
-  line-height: 1;
+  font-size: 16vh;
+  line-height: 1.1;
   font-weight: 800;
   background: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0.7));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-right: 1rem;
+}
+
+.weekday-label {
+  font-size: 6vh;
+  letter-spacing: 0.2em;
+  line-height: 1.1;
+  opacity: 0.9;
+}
+
+.year-label {
+  font-size: 4.6vh;
+  letter-spacing: 0.2em;
+  line-height: 1.1;
+  opacity: 0.8;
+  margin-top: 0.5vh;
+}
+
+.lunar-date-label {
+  font-size: 6vh;
+  letter-spacing: 0.2em;
+  line-height: 1.1;
+  opacity: 0.9;
+}
+
+.lunar-year-label {
+  font-size: 4.6vh;
+  letter-spacing: 0.2em;
+  line-height: 1.1;
+  opacity: 0.8;
+  margin-top: 0.5vh;
 }
 
 .clock-display {
@@ -146,11 +175,15 @@ const Math = window.Math
   align-items: center;
   justify-content: center;
   font-family: 'SFCompactRounded', 'Huninn', sans-serif;
-  font-size: 26rem;
+  font-size: 54vh;
+  margin-top: 6vh;
+  margin-bottom: 6vh;
 }
 
 .clock-display.with-seconds {
-  font-size: 20rem;
+  font-size: 38vh;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
 }
 
 .clock-separator {
