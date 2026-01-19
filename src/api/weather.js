@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export async function fetchWeatherData(lat, lon) {
-  const url = 'http://api.open-meteo.com/v1/forecast'
+  const url = '//api.open-meteo.com/v1/forecast'
   let data
   try {
     const response = await axios.get(url, {
@@ -30,7 +30,7 @@ export async function fetchWeatherData(lat, lon) {
 }
 
 export async function fetchAirQualityData(lat, lon) {
-  const url = 'http://air-quality-api.open-meteo.com/v1/air-quality'
+  const url = '//air-quality-api.open-meteo.com/v1/air-quality'
   try {
     const response = await axios.get(url, {
       params: {
