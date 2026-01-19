@@ -39,12 +39,12 @@ const Math = window.Math
   <div class="w-full">
     <div
       id="weather-container"
-      class="weather-clickable px-10 flex w-full transition-opacity duration-700"
+      class="weather-clickable px-10 flex justify-between w-full transition-opacity duration-700"
       :class="{ 'opacity-30': loading, 'opacity-100': !loading }"
       @click="showSettings = true"
     >
       <!-- 状态与定位 -->
-      <div class="w-1/3 flex items-center justify-center md:justify-start">
+      <div class="flex items-center justify-center md:justify-start">
         <div id="weather-icon" class="flex-shrink-0">
           <img :src="weatherInfo.icon" :alt="weatherInfo.text" class="w-full h-full object-contain" draggable="false">
         </div>
@@ -60,7 +60,7 @@ const Math = window.Math
       </div>
 
       <!-- 温度显示 -->
-      <div class="w-1/3 flex items-center justify-center px-4">
+      <div class="flex items-center justify-center px-4">
         <div class="flex items-end mr-6">
           <div id="temp-val" class="font-extralight mr-1">
             {{ weatherData ? Math.round(weatherData.current.temperature_2m) : '--' }}
@@ -80,7 +80,7 @@ const Math = window.Math
       </div>
 
       <!-- 环境数据 -->
-      <div class="environment-data w-1/3 flex justify-end items-center text-white tabular-nums">
+      <div class="environment-data flex justify-end items-center text-white tabular-nums">
         <div class="flex flex-col mr-4">
           <!-- 湿度 -->
           <div id="humidity-val" class="flex flex-row items-center justify-end">
