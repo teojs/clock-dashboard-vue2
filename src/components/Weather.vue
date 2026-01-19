@@ -80,18 +80,28 @@ const Math = window.Math
       </div>
 
       <!-- 环境数据 -->
-      <div class="environment-data w-1/3 flex flex-col justify-center items-end text-white tabular-nums">
-        <div class="w-auto flex flex-wrap">
+      <div class="environment-data w-1/3 flex justify-end items-center text-white tabular-nums">
+        <div class="flex flex-col mr-4">
           <!-- 湿度 -->
-          <div id="humidity-val" class="w-1/2 flex flex-row items-center justify-end">
+          <div id="humidity-val" class="flex flex-row items-center justify-end">
             <span>
               {{ weatherData ? weatherData.current.relative_humidity_2m : '--' }}%
             </span>
             <Droplets class="environment-data-icon text-blue-500/60 flex-shrink-0 ml-1" />
           </div>
 
+          <!-- 体感温度 -->
+          <div id="apparent-temp-val" class="flex flex-row items-center justify-end">
+            <span>
+              {{ weatherData ? Math.round(weatherData.current.apparent_temperature) : '--' }}°C
+            </span>
+            <PersonStanding class="environment-data-icon text-orange-500/60 flex-shrink-0 ml-1" />
+          </div>
+        </div>
+
+        <div class="flex flex-col">
           <!-- 空气质量 -->
-          <div id="aqi-val" class="w-1/2 flex flex-row items-center justify-end">
+          <div id="aqi-val" class="flex flex-row items-center justify-end">
             <div class="flex items-start">
               <span>
                 {{ airQualityData?.current?.us_aqi || '--' }}
@@ -103,16 +113,8 @@ const Math = window.Math
             <Leaf class="environment-data-icon text-green-300/60 flex-shrink-0 ml-1" />
           </div>
 
-          <!-- 体感温度 -->
-          <div id="apparent-temp-val" class="w-1/2 flex flex-row items-center justify-end">
-            <span>
-              {{ weatherData ? Math.round(weatherData.current.apparent_temperature) : '--' }}°C
-            </span>
-            <PersonStanding class="environment-data-icon text-orange-500/60 flex-shrink-0 ml-1" />
-          </div>
-
           <!-- 紫外线 -->
-          <div id="uv-val" class="w-1/2 flex flex-row items-center justify-end">
+          <div id="uv-val" class="flex flex-row items-center justify-end">
             <span>
               {{ weatherData ? Math.round(weatherData.hourly.uv_index[weatherData.current_hour_index]) : '--' }}
             </span>
