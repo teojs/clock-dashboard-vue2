@@ -15,7 +15,7 @@ body:
       description: |
         在提交问题之前，请确保您已完成以下步骤
       options:
-        - label: 我在[Open Issues](https://github.com/teojs/clock-dashboard/issues)和[Closed Issues](https://github.com/teojs/clock-dashboard/issues?q=is%3Aissue%20state%3Aclosed)中搜索过，没有找到类似的问题。
+        - label: 我在[Open Issues](https://github.com/teojs/clock-dashboard-vue2/issues)和[Closed Issues](https://github.com/teojs/clock-dashboard-vue2/issues?q=is%3Aissue%20state%3Aclosed)中搜索过，没有找到类似的问题。
           required: true
 
   - type: dropdown
