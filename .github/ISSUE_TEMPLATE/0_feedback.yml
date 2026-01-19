@@ -1,7 +1,6 @@
 name: 问题反馈
 description: 提交你遇到的问题，帮助开发者了解和修复
-title: ''
-labels: ''
+labels: []
 body:
   - type: markdown
     attributes:
