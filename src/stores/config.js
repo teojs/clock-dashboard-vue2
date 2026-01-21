@@ -9,6 +9,7 @@ export const useConfigStore = defineStore('config', () => {
     showSeconds: false,
     opacity: 0.9,
     is24Hour: true,
+    clockOnlyMode: false,
   })
 
   const calendarConfig = ref({

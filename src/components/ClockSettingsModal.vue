@@ -36,6 +36,7 @@ function handleRestoreDefault() {
     showSeconds: false,
     opacity: 0.9,
     is24Hour: true,
+    clockOnlyMode: false,
   }
 }
 
@@ -193,6 +194,22 @@ function handleSaveAndClose() {
                 <div
                   class="absolute top-1 left-1 w-4 h-4 rounded-full transition-transform"
                   :class="draft.enableTilt ? 'translate-x-6 bg-black' : 'bg-white/50'"
+                />
+              </div>
+            </div>
+
+            <div
+              class="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/10 cursor-pointer hover:bg-white/10 transition-all"
+              @click="draft.clockOnlyMode = !draft.clockOnlyMode"
+            >
+              <span class="font-medium">仅显示时钟</span>
+              <div
+                class="w-12 h-6 rounded-full transition-colors relative"
+                :class="draft.clockOnlyMode ? 'bg-white' : 'bg-white/10'"
+              >
+                <div
+                  class="absolute top-1 left-1 w-4 h-4 rounded-full transition-transform"
+                  :class="draft.clockOnlyMode ? 'translate-x-6 bg-black' : 'bg-white/50'"
                 />
               </div>
             </div>
