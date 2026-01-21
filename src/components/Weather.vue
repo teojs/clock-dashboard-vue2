@@ -61,8 +61,8 @@ const Math = window.Math
 
       <!-- 温度显示 -->
       <div class="flex items-center justify-center px-4">
-        <div class="flex items-end mr-6">
-          <div id="temp-val" class="font-extralight mr-1">
+        <div class="temp-val-container flex items-end">
+          <div id="temp-val" class="font-extralight">
             {{ weatherData ? Math.round(weatherData.current.temperature_2m) : '--' }}
           </div>
           <div class="temp-unit font-light opacity-70">
@@ -81,7 +81,7 @@ const Math = window.Math
 
       <!-- 环境数据 -->
       <div class="environment-data flex justify-end items-center text-white tabular-nums">
-        <div class="flex flex-col mr-4">
+        <div class="flex flex-col left-data">
           <!-- 湿度 -->
           <div id="humidity-val" class="flex flex-row items-center justify-end">
             <span>
@@ -163,9 +163,14 @@ const Math = window.Math
   font-size: 2.8vh;
 }
 
+.temp-val-container {
+  margin-right: 2vh;
+}
+
 #temp-val {
   font-size: 12.5vh;
   line-height: 1.1;
+  margin-right: 0.8vh;
 }
 
 .temp-unit {
@@ -185,6 +190,10 @@ const Math = window.Math
 .environment-data {
   font-size: 4vh;
   line-height: 1.1;
+}
+
+.environment-data .left-data {
+  margin-right: 2vh;
 }
 
 .environment-data-icon {

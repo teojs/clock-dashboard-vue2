@@ -39,7 +39,7 @@ const Math = window.Math
         <div class="date-day-big">
           {{ now.getDate() }}
         </div>
-        <div class="flex flex-col mr-16">
+        <div class="weekday-label-container flex flex-col">
           <span class="weekday-label">
             {{ weekdayLabel }}
           </span>
@@ -147,7 +147,11 @@ const Math = window.Math
   background: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0.7));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-right: 1rem;
+  margin-right: 2vh;
+}
+
+.weekday-label-container {
+  margin-right: 8vh;
 }
 
 .weekday-label {
