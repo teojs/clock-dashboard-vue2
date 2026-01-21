@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2-alpha.11](https://github.com/teojs/clock-dashboard-vue2/compare/v0.0.2-alpha.10...v0.0.2-alpha.11) (2026-01-21)
+
 ### [0.0.2-alpha.10](https://github.com/teojs/clock-dashboard-vue2/compare/v0.0.2-alpha.9...v0.0.2-alpha.10) (2026-01-21)
 
 ### [0.0.2-alpha.9](https://github.com/teojs/clock-dashboard-vue2/compare/v0.0.2-alpha.8...v0.0.2-alpha.9) (2026-01-21)
