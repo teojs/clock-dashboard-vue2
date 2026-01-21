@@ -42,13 +42,13 @@ export default defineConfig({
         screenshots: [
           {
             src: 'screenshots/1.png',
-            sizes: '2048x1536',
+            sizes: '1334×750',
             type: 'image/png',
             form_factor: 'wide',
           },
           {
-            src: 'screenshots/1.png',
-            sizes: '2048x1536',
+            src: 'screenshots/2.png',
+            sizes: '1334×750',
             type: 'image/png',
           },
         ],

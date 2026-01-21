@@ -39,7 +39,7 @@ const Math = window.Math
   <div class="w-full">
     <div
       id="weather-container"
-      class="weather-clickable px-10 flex justify-between w-full transition-opacity duration-700"
+      class="weather-clickable px-12 flex justify-between w-full transition-opacity duration-700"
       :class="{ 'opacity-30': loading, 'opacity-100': !loading }"
       @click="showSettings = true"
     >
@@ -142,8 +142,9 @@ const Math = window.Math
 }
 
 #weather-icon {
-  width: 14.4vh;
-  height: 14.4vh;
+  width: 14.2vh;
+  height: 14.2vh;
+  margin-right: 1vh;
 }
 
 #weather-text {

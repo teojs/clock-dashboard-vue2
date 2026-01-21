@@ -13,7 +13,9 @@
 
 ## 📸 预览
 
-![时钟页面](./public/screenshots/1.png)
+| 时钟+天气 | 仅时钟 |
+|:--------:|:--------:|
+| ![时钟页面](./public/screenshots/1.png) | ![时钟页面](./public/screenshots/2.png) |
 
 ---
 
