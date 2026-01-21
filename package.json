@@ -1,7 +1,7 @@
 {
   "name": "clock-dashboard-vue2",
   "type": "module",
-  "version": "0.0.2-alpha.9",
+  "version": "0.0.2-alpha.10",
   "private": false,
   "packageManager": "pnpm@9.6.0",
   "license": "CC-BY-NC-SA-4.0",
