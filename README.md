@@ -9,6 +9,10 @@
 
 **🌐 在线地址：** [http://clock-legacy.teojs.cn/](http://clock-legacy.teojs.cn/)
 
+## ⚠️注意
+
+部分系统版本比较低，无法兼容天气接口的https，请用http访问。
+
 ---
 
 ## 📸 预览
