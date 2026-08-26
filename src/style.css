@@ -5,6 +5,16 @@
 @tailwind utilities;
 
 @font-face {
+  font-family: 'ClockDigits';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src:
+    url('/fonts/ClockDigits/ClockDigits.woff2') format('woff2'),
+    url('/fonts/ClockDigits/ClockDigits.woff') format('woff');
+}
+
+@font-face {
   font-family: 'SFCompactRounded';
   font-style: normal;
   font-weight: 100;
