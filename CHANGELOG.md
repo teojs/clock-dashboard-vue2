@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/teojs/clock-dashboard-vue2/compare/v0.1.0...v0.2.0) (2026-08-26)
+
+
+### Features
+
+* **clock:** add compact clock mode for small screens ([7df12a8](https://github.com/teojs/clock-dashboard-vue2/commit/7df12a8e866dd68f54bdcc945270a1dbfc2e7632))
+
+
+### Bug Fixes
+
+* **clock:** port ClockDigits font for compact mode ([dea6d8c](https://github.com/teojs/clock-dashboard-vue2/commit/dea6d8c93769a6093fe06d8a1da599c18921d073))
+* **clock:** vertically center compact mode right column ([e315882](https://github.com/teojs/clock-dashboard-vue2/commit/e315882627015a2f4687a5e81cb4e6b87e6f9d48))
+
 ## [0.1.0](https://github.com/teojs/clock-dashboard-vue2/compare/v0.0.2-alpha.11...v0.1.0) (2026-01-21)
 
 ### [0.0.2-alpha.11](https://github.com/teojs/clock-dashboard-vue2/compare/v0.0.2-alpha.10...v0.0.2-alpha.11) (2026-01-21)
