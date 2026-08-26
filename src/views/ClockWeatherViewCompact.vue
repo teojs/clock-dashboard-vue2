@@ -239,7 +239,7 @@ const Math = window.Math
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: 'SFCompactRounded', 'Huninn', sans-serif;
+  font-family: 'ClockDigits', 'SFCompactRounded', 'Huninn', sans-serif;
   font-weight: 500;
   font-style: normal;
   -webkit-transition: all 0.5s ease;
