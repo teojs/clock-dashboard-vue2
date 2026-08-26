@@ -11,11 +11,17 @@ const emit = defineEmits(['close'])
 const configStore = useConfigStore()
 const { clockConfig } = storeToRefs(configStore)
 
-const draft = ref({ ...clockConfig.value })
+const draft = ref({
+  compactMode: false,
+  ...clockConfig.value,
+})
 
 watch(() => props.show, (isShowing) => {
   if (isShowing) {
-    draft.value = { ...clockConfig.value }
+    draft.value = {
+      compactMode: false,
+      ...clockConfig.value,
+    }
   }
 })
 
@@ -37,7 +43,20 @@ function handleRestoreDefault() {
     opacity: 0.9,
     is24Hour: true,
     clockOnlyMode: false,
+    compactMode: false,
   }
+}
+
+function toggleClockOnlyMode() {
+  draft.value.clockOnlyMode = !draft.value.clockOnlyMode
+  if (draft.value.clockOnlyMode)
+    draft.value.compactMode = false
+}
+
+function toggleCompactMode() {
+  draft.value.compactMode = !draft.value.compactMode
+  if (draft.value.compactMode)
+    draft.value.clockOnlyMode = false
 }
 
 function handleSaveAndClose() {
@@ -200,7 +219,7 @@ function handleSaveAndClose() {
 
             <div
               class="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/10 cursor-pointer hover:bg-white/10 transition-all"
-              @click="draft.clockOnlyMode = !draft.clockOnlyMode"
+              @click="toggleClockOnlyMode"
             >
               <span class="font-medium">仅显示时钟</span>
               <div
@@ -210,6 +229,22 @@ function handleSaveAndClose() {
                 <div
                   class="absolute top-1 left-1 w-4 h-4 rounded-full transition-transform"
                   :class="draft.clockOnlyMode ? 'translate-x-6 bg-black' : 'bg-white/50'"
+                />
+              </div>
+            </div>
+
+            <div
+              class="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/10 cursor-pointer hover:bg-white/10 transition-all"
+              @click="toggleCompactMode"
+            >
+              <span class="font-medium">紧凑模式</span>
+              <div
+                class="w-12 h-6 rounded-full transition-colors relative"
+                :class="draft.compactMode ? 'bg-white' : 'bg-white/10'"
+              >
+                <div
+                  class="absolute top-1 left-1 w-4 h-4 rounded-full transition-transform"
+                  :class="draft.compactMode ? 'translate-x-6 bg-black' : 'bg-white/50'"
                 />
               </div>
             </div>

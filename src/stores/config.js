@@ -10,6 +10,8 @@ export const useConfigStore = defineStore('config', () => {
     opacity: 0.9,
     is24Hour: true,
     clockOnlyMode: false,
+    /** 紧凑模式：时钟在左，日期与天气在右 */
+    compactMode: false,
   })
 
   const calendarConfig = ref({
