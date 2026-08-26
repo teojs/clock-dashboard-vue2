@@ -30,7 +30,7 @@ const Math = window.Math
 </script>
 
 <template>
-  <div class="compact-clock-weather-view relative h-full w-full text-white overflow-hidden">
+  <div class="compact-clock-weather-view relative h-screen w-full text-white overflow-hidden">
     <div class="compact-layout">
       <!-- 左侧：紧凑时钟 -->
       <div class="clock-column">
@@ -117,6 +117,7 @@ const Math = window.Math
 
 <style scoped>
 .compact-clock-weather-view {
+  height: 100vh;
   font-family:
     system-ui,
     -apple-system,
